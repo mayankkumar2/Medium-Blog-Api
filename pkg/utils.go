@@ -1,4 +1,4 @@
-package pkg
+package utils
 import (
 	"net/http"
 	"io/ioutil"
@@ -18,15 +18,15 @@ type Articles struct{
 	Status string `json:"status"`
 	Arts []Article `json:"articles"`
 }
-func GetArticles(userId string) []byte {
+func GetArticles(userId string) (resp []byte,statusCode int) {
 	url := "https://medium.com/feed/" + userId
 	data,_ := http.Get(url)
 	defer data.Body.Close()
-	if data.StatusCode == 404 {
+	if data.StatusCode != 200 {
 		resp, _ := json.Marshal(Articles{
 			Status: "fail",
 		})
-		return resp
+		return resp,data.StatusCode
 	}
 	body, _ := ioutil.ReadAll(data.Body)
 	bodyAsString := string(body)
@@ -50,5 +50,5 @@ func GetArticles(userId string) []byte {
 		Arts: articles,
 	}
 	responseJson,_ := json.Marshal(arts)
-	return responseJson
+	return responseJson,200
 }

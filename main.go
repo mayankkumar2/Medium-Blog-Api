@@ -6,30 +6,31 @@ import (
 	"mediumFeedAPI/pkg"
 	"os"
 	"github.com/lab259/cors"
-
 )
-
 func fastHTTPHandler(ctx *fasthttp.RequestCtx) {
 	if ctx.IsGet() && string(ctx.Path()) == "/api/v1/articles"{
-		//log.Println(ctx.QueryArgs().Has("orgid"))
 		if ctx.QueryArgs().Has("userid"){
 			id := "@"+string(ctx.QueryArgs().Peek("userid"))
-			m := pkg.GetArticles(id)
+			m,statusCode := utils.GetArticles(id)
 			ctx.Response.SetBody(m)
+			ctx.SetStatusCode(statusCode)
 		} else if ctx.QueryArgs().Has("orgid"){
 
 			id := string(ctx.QueryArgs().Peek("orgid"))
-			m := pkg.GetArticles(id)
+			m,statusCode := utils.GetArticles(id)
 			ctx.Response.SetBody(m)
+			ctx.SetStatusCode(statusCode)
 		} else {
 
 			m := `{"status":"fail","articles":null}`
 			ctx.Response.SetBody([]byte(m))
+			ctx.SetStatusCode(400)
 		}
 		ctx.Response.Header.Set("content-type", "application/json")
 
 	} else {
 		ctx.Response.Header.Set("content-type","application/json")
+		ctx.SetStatusCode(400)
 		ctx.Response.SetBody([]byte(`{"status":"fail"}`))
 	}
 }
