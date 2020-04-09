@@ -7,7 +7,7 @@ Hence, the project's aim was to create an easy to use API, that could be used to
 </p>
 
 ---
-[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
+[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](https://web.postman.co/collections/10749950-07deca31-2cf8-4560-8235-66ed719ef0b7?version=latest&workspace=333e2c6b-3292-4bb6-87ac-344feae62c1a) 
 
 
 ## Functionalities

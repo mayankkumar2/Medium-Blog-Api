@@ -5,7 +5,10 @@ import (
 	"log"
 	"mediumFeedAPI/pkg"
 	"os"
+	"github.com/lab259/cors"
+
 )
+
 func fastHTTPHandler(ctx *fasthttp.RequestCtx) {
 	if ctx.IsGet() && string(ctx.Path()) == "/api/v1/articles"{
 		//log.Println(ctx.QueryArgs().Has("orgid"))
@@ -42,5 +45,10 @@ func main() {
 	}
 	log.Println("Env PORT : " + os.Getenv("PORT"))
 	log.Println("Run at port "+port[1:])
-	fasthttp.ListenAndServe(port, fastHTTPHandler)
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"*"},
+		AllowCredentials: true,
+	})
+	handler := c.Handler(fastHTTPHandler)
+	fasthttp.ListenAndServe(port, handler)
 }
