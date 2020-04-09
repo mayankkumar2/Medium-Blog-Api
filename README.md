@@ -1,19 +1,17 @@
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/30529572/72455010-fb38d400-37e7-11ea-9c1e-8cdeb5f5906e.png" />
-	<h2 align="center"> < Insert Project Title Here > </h2>
-	<h4 align="center"> < Insert Project Description Here > <h4>
+	<h2 align="center"> Medium Blogs API </h2>
+	<h4 align="center"> Medium is a blog posting service that is used by many organizations across the world to post tutorials, many DIY guides, create awareness about their product, etc. Medium on its own doesn’t provide any API for the users to showcase their work on their websites or on other platforms.
+Hence, the project's aim was to create an easy to use API, that could be used to fetch and integrate Medium Posts of a user or an organization to a website or other Application platforms.
+ <h4>
 </p>
 
 ---
 [![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
-  [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](INSERT_UI_LINK_HERE)
 
 
 ## Functionalities
-- [ ]  < insert functionality >
-- [ ]  < insert functionality >
-- [ ]  < insert functionality >
-- [ ]  < insert functionality >
+- [X]  Endpoint to fetch articles from medium's website
 
 <br>
 
@@ -21,26 +19,28 @@
 ## Instructions to run
 
 * Pre-requisites:
-	-  < insert pre-requisite >
-	-  < insert pre-requisite >
-
-* < directions to install > 
-```bash
-< insert code >
+	-  Golang Compiler
+* Instructions to manually install dependecies
+```
+go mod download
 ```
 
-* < directions to execute >
+*  Instruction to build the module
+```bash
+go build
+```
+
+* Instructions to install the module
 
 ```bash
-< insert code >
+go install
 ```
 
 <br>
 
 ## Contributors
 
-* [ < INSERT NAME HERE > ](INSERT_PROFILE_URL_HERE)
-* [ < INSERT NAME HERE > ](INSERT_PROFILE_URL_HERE)
+* [ Mayank Kumar ](https://github.com/mayankkumar2)
 
 
 
