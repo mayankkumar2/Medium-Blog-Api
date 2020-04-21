@@ -1,1 +1,1 @@
-web ./bin/mediumFeedAPI
+web ./bin/medium-feed-2
