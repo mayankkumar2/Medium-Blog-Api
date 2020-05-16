@@ -78,9 +78,9 @@ func GetArticlesforOrganizationV2(orgId string) (respose interface{}, statusCode
 		v := len(e.Text)
 		if v > 32 {
 			if ("// <![CDATA[\nwindow[\"obvInit\"]({") ==(e.Text[:32]) {
+				sanatizedText := strings.Replace(e.Text[31:v-8], "\\", "\\\\", -1)
 				var l map[string] interface{}
-				json.Unmarshal([]byte(e.Text[31:v-8]),&l)
-
+				json.Unmarshal([]byte(sanatizedText),&l)
 				rootMap := (l["references"].(map[string] interface{})) //Root interface
 				_users := rootMap["User"].(map[string] interface{}) //JSON interface
 				users := make(map[string] User)
